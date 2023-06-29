@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <header className={classes.container}>
                 <span className={classes.img}>
-                    <Image src="./nobody.svg" height="120" width="80" alt="" />
+                    <Image src="./nobody.svg" height="40" width="40" alt="" />
                 </span>
                 <div className={classes.info}>
                     <button className={classes.btn} onClick={() => signIn("github")}>ログインする</button>
