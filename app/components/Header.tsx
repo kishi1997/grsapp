@@ -1,5 +1,5 @@
 "use client"
-import classes from "./Header.module.css"
+import classes from "../styles/components/Header.module.scss"
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";

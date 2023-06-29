@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import classes from './page.module.css'
+import classes from './page.module.scss'
 import { signOut, signIn, useSession } from 'next-auth/react'
 
 const Page = () => {
