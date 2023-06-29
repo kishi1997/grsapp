@@ -1,23 +1,32 @@
 "use client"
+import classes from "./Header.module.css"
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
     const { data: session } = useSession();
 
     if (session) {
         return (
-            <div>
-                <h1>login</h1>
-                <button>sign out</button>
-            </div>
+            <header className={classes.container}>
+                <Link href="/MyGithub" className={classes.img}>
+                    <img src={session.user.image} height="120" width="80" alt="" />
+                </Link>
+                <div className={classes.info}>
+                    <button className={classes.btn} onClick={() => signOut()}>ログアウトする</button>
+                </div>
+            </header>
         )
     }
     return (
-        <div>
-            <h1>log out</h1>
-            <Image src="./nobody.svg" height="120" width="80" alt="" />
-            <button onClick={() => signIn("github")}>sign in</button>
-        </div>
+        <header className={classes.container}>
+                <span className={classes.img}>
+                    <Image src="./nobody.svg" height="120" width="80" alt="" />
+                </span>
+                <div className={classes.info}>
+                    <button className={classes.btn} onClick={() => signIn("github")}>ログインする</button>
+                </div>
+        </header>
     );
 }
