@@ -1,0 +1,66 @@
+.repo {
+    padding: 40px 0;
+    border-bottom: 1px solid #fff;
+
+    // リポジトリ名＋ボタン
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: 24px;
+        }
+    }
+
+    // リポジトリ詳細
+    &__detail {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    // アイコン画像
+    &__icon {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // 詳細を見るボタン
+    &__btn1 button {
+        width: fit-content;
+        padding: 8px 16px;
+        color: #fff;
+        font-size: 14px;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        background: none;
+
+        &:hover {
+            color: #000;
+            border: 2px solid #000;
+            background: #fff;
+        }
+    }
+}
+.primaryBtn {
+    margin-top: 40px;
+    padding: 10px 40px;
+    background: none;
+    border: 2px solid #00C2FF;
+    color: #00c2ff;
+    border-radius: 20px;
+    width: fit-content;
+
+    &:hover {
+        background: #00C2FF;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+}
