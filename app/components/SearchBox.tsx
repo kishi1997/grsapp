@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import classes from '../styles/components/SearchBox.module.scss'
 import axios from 'axios'
 import Repo from '../type';
-import Repositories from './Repositories';
-import Pagenation from './Pagenation';
+import Pagination from './Pagination';
 
 const SearchBox = () => {
     // 入力キーワードの状態管理
@@ -36,7 +35,7 @@ const SearchBox = () => {
                 />
             </div>
             <button className={classes.primaryBtn} onClick={searchRepos}>Search</button>
-            <Pagenation repos={repos} />
+            <Pagination repos={repos} />
         </>
     )
 }
