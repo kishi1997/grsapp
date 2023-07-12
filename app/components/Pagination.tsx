@@ -3,7 +3,7 @@ import Repo from '../type';
 import Repositories from './Repositories';
 import { NextPage } from 'next';
 import ReactPaginate from 'react-paginate';
-import classes from '../styles/components/Pagination.module.scss'
+import classes from '../styles/components/Pagination.module.scss';
 
 type repoInfo = {
     repos: Repo[];
@@ -27,20 +27,22 @@ const Pagination: NextPage<repoInfo> = (props) => {
     }
 
     return (
-        <div className={classes.container}>
+        <>
             <Repositories repos={repos} currentRepos={currentRepos} />
             {repos.length > 0 &&
-                <ReactPaginate
-                    pageCount={pageCount}
-                    onPageChange={handlePageChange}
-                    breakLabel="..."
-                    nextLabel="next >"
-                    pageRangeDisplayed={5}
-                    previousLabel="< previous"
-                    renderOnZeroPageCount={null}
-                />
+                <div className={classes.container}>
+                    <ReactPaginate
+                        pageCount={pageCount}
+                        onPageChange={handlePageChange}
+                        breakLabel="..."
+                        nextLabel="next >"
+                        pageRangeDisplayed={5}
+                        previousLabel="< previous"
+                        renderOnZeroPageCount={null}
+                    />
+                </div>
             }
-        </div>
+        </>
     )
 }
 

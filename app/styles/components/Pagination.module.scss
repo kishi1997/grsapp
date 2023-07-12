@@ -1,43 +1,44 @@
 .container {
-    background-color: red;
+    margin-top: 40px;
     ul {
-        &.react-paginate {
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            list-style-type: none;
-            padding: 0 5rem;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0 5rem;
 
-            li {
-                a {
-                    border-radius: 7px;
-                    padding: 0.1rem 1rem;
-                    border: gray 1px solid;
-                    cursor: pointer;
-                }
+        li {
+            &.next.diabled {
+                display: none;
+            }
+            &.previous a,
+            &.next a,
+            &.break a {
+                border-color: transparent;
+            }
 
-                &.previous a,
-                &.next a,
-                &.break a {
-                    border-color: transparent;
-                }
+            &.selected a {
+                background-color: #00C2FF;
+                border-color: transparent;
+                color: white;
+                min-width: 32px;
+            }
 
-                &.selected a {
-                    background-color: #0366d6;
-                    border-color: transparent;
-                    color: white;
-                    min-width: 32px;
-                }
+            &.disabled a {
+                color: #fff;
+            }
 
-                &.disabled a {
-                    color: grey;
-                }
+            &.disable,
+            &.disabled a {
+                cursor: default;
+            }
 
-                &.disable,
-                &.disabled a {
-                    cursor: default;
-                }
+            a {
+                border-radius: 7px;
+                padding: 0.1rem 1rem;
+                border: #fff 1px solid;
+                cursor: pointer;
             }
         }
     }

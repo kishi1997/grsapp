@@ -1,7 +1,7 @@
 .container {
-  background-color: red;
+  margin-top: 40px;
 }
-.container ul.react-paginate {
+.container ul {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
@@ -9,25 +9,28 @@
   list-style-type: none;
   padding: 0 5rem;
 }
-.container ul.react-paginate li a {
-  border-radius: 7px;
-  padding: 0.1rem 1rem;
-  border: gray 1px solid;
-  cursor: pointer;
+.container ul li.next.diabled {
+  display: none;
 }
-.container ul.react-paginate li.previous a, .container ul.react-paginate li.next a, .container ul.react-paginate li.break a {
+.container ul li.previous a, .container ul li.next a, .container ul li.break a {
   border-color: transparent;
 }
-.container ul.react-paginate li.selected a {
-  background-color: #0366d6;
+.container ul li.selected a {
+  background-color: #00C2FF;
   border-color: transparent;
   color: white;
   min-width: 32px;
 }
-.container ul.react-paginate li.disabled a {
-  color: grey;
+.container ul li.disabled a {
+  color: #fff;
 }
-.container ul.react-paginate li.disable, .container ul.react-paginate li.disabled a {
+.container ul li.disable, .container ul li.disabled a {
   cursor: default;
+}
+.container ul li a {
+  border-radius: 7px;
+  padding: 0.1rem 1rem;
+  border: #fff 1px solid;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Pagination.module.css.map */
