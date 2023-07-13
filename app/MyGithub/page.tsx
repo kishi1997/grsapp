@@ -1,19 +1,22 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import classes from './page.module.scss'
-import { signOut, signIn, useSession, getSession } from 'next-auth/react'
+import { signOut, signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Header from '../components/Header'
 
-interface test {
-  id: number;
+interface Repo {
   name: string;
+  owner: {
+    login: string;
+  }
   url: string;
+  id: number;
 }
 
 const Page = () => {
   const { data: session } = useSession();
-  const [repos, setRepos] = useState<test[]>([]);
+  const [repos, setRepos] = useState<Repo[]>([]);
 
   useEffect(() => {
     fetchRepos();
@@ -35,14 +38,21 @@ const Page = () => {
   return (
     <div className={classes.container}>
       <Header />
-      <h2>Repositories</h2>
-      <ul>
-        {repos.map((repo) => (
-          <li key={repo.id}>
-            <Link href={`https://github.com/${repo.owner.login}/${repo.name}`} target="blank" rel="noopener noreferrer">{repo.name}</Link>
-          </li>
-        ))}
-      </ul>
+        <div>
+          <div className={classes.name}>{session?.user.name}</div>
+          <div>{session?.user.bio}</div>
+          <div>{session?.user.following}</div>
+          <div>{session?.user.followers}</div>
+          <div>{session?.user.stars}</div>
+          <h2>Repositories</h2>
+          <ul>
+            {repos.map((repo) => (
+              <li key={repo.id}>
+                <Link href={`https://github.com/${repo.owner.login}/${repo.name}`} target="blank" rel="noopener noreferrer">{repo.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
     </div>
   );
 }

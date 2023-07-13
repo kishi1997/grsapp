@@ -11,10 +11,6 @@
 }
 
 .container {
-    display:flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -23,6 +19,12 @@
     @include mq(sm) {
         padding: 20px 40px 0 20px;
     }
+}
+.link {
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
 }
 
 .name {

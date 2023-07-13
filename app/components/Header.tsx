@@ -11,9 +11,8 @@ export default function Header() {
     if (session) {
         return (
             <header className={classes.container}>
-                <Link href="/MyGithub" className={classes.img}>
-                    <Image alt="" src={session.user.image} height="120" width="80" />
-                    <img src={session.user.image} height="120" width="80" alt="" />
+                <Link className={classes.link} href="/MyGithub">
+                    <Image className={classes.img} alt="profile-icon" src={session.user.image} height="120" width="80" />
                     <div className={classes.info}>
                         <button className={classes.btn} onClick={() => signOut()}>ログアウトする</button>
                     </div>
