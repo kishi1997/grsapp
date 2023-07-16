@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import classes from '../styles/components/Main.module.scss'
 import SearchBox from './SearchBox'

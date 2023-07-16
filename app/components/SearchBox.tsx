@@ -4,13 +4,18 @@ import classes from '../styles/components/SearchBox.module.scss'
 import axios from 'axios'
 import Repo from '../type';
 import Pagination from './Pagination';
+// recoil：キーワード
+import { addKeywordState } from '../states/addKeywordState';
+import { useRecoilState } from "recoil";
+import { getRepositoryState } from '../states/getRepositoryState';
 
 const SearchBox = () => {
     // 入力キーワードの状態管理
-    const [keyword, setKeyword] = useState('');
+    const [ keyword, setKeyword] = useRecoilState(addKeywordState);
 
     // 検索したキーワードと一致するレポジトリの状態管理
-    const [repos, setRepos] = useState<Repo[]>([]);
+    const [repos, setRepos] = useRecoilState(getRepositoryState);
+    // const [repos, setRepos] = useState<Repo[]>([]);
 
     // 検索キーワードと一致するレポジトリをapiを使って検索し、setReposに
     const searchRepos = async () => {

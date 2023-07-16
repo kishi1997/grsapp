@@ -5,18 +5,9 @@ import { signOut, signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Header from '../components/Header'
 
-interface Repo {
-  name: string;
-  owner: {
-    login: string;
-  }
-  url: string;
-  id: number;
-}
-
 const Page = () => {
   const { data: session } = useSession();
-  const [repos, setRepos] = useState<Repo[]>([]);
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     fetchRepos();

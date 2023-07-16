@@ -5,4 +5,7 @@ module.exports = {
     images: {
         domains: ['avatars.githubusercontent.com'],
     },
-};
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+}

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 "use client"
 import classes from "../styles/components/Header.module.scss"
 import { useSession, signIn, signOut, getSession } from "next-auth/react";
