@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
-import Repo from '../type';
+import { Repos } from '../type';
 import Repositories from './Repositories';
 import { NextPage } from 'next';
 import ReactPaginate from 'react-paginate';
 import classes from '../styles/components/Pagination.module.scss';
 
-type repoInfo = {
-    repos: Repo[];
-};
-
-const Pagination: NextPage<repoInfo> = (props) => {
+const Pagination: NextPage<Repos> = (props) => {
     const { repos } = props;
     // 1ページに表示するリポジトリ数
     const itemsPerPage = 5;

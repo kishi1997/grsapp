@@ -1,16 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import Repo from '../type';
+import { Repos } from '../type';
 import { NextPage } from 'next';
 import classes from '../styles/components/Repositories.module.scss'
 
-// 受け取ったpropsはreposで、複数のrepository情報が格納された配列のため、[]をつける。
-type repoInfo = {
-    repos: Repo[];
-    currentRepos: Repo[];
-};
-
-const Repositories: NextPage<repoInfo> = (props) => {
+const Repositories: NextPage<Repos> = (props) => {
     const {repos, currentRepos} = props;
     // idの状態管理
     const [openIds, setOpenIds] = useState(null);

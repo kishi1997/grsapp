@@ -1,4 +1,4 @@
-type Repo = {
+export type Repo = {
     id: number;
     name: string;
     html_url: string;
@@ -12,4 +12,9 @@ type Repo = {
     open_issues_count: number;
 };
 
-export default Repo;
+// 受け取ったpropsはreposで、複数のrepository情報が格納された配列のため、[]をつける。
+export type Repos = {
+    repos: Repo[];
+    currentRepos: Repo[];
+}
+// export default Repo;

@@ -6,28 +6,32 @@ import { useRecoilState, useRecoilValue, useRecoilValueLoadable } from "recoil";
 import { addKeywordState } from '../states/atoms/addKeywordState';
 // recoil： apiで取得したレポジトリを格納
 import { searchResultState } from '../states/atoms/searchResultState';
-import axios from 'axios';
 // recoil： Githubのapiを取得
-import { getApiState } from '../states/atoms/getApiState';
+import { getApiState } from '../states/selector/getApiState';
+import { isClickedState } from '../states/atoms/isClickedState';
 
 const SearchBox = () => {
     // 入力キーワードの状態管理
-    const [ keyword, setKeyword] = useRecoilState(addKeywordState);
+    const [keyword, setKeyword] = useRecoilState(addKeywordState);
 
     // 検索したキーワードと一致するレポジトリの状態管理
     const [repos, setRepos] = useRecoilState(searchResultState);
     // const [repos, setRepos] = useState<Repo[]>([]);
 
     // 検索キーワードと一致するレポジトリをapiを使って検索し、setReposに
-    const test = useRecoilValueLoadable(getApiState);
+    const responseLoadable = useRecoilValueLoadable(getApiState);
+
+    // クリックされたかどうかの判定
+    // const [isClicked, setIsClicked] = useRecoilState(isClickedState);
 
     const searchRepos = () => {
         // 値があれば表示
-        if (test.state === 'hasValue') {
-            const items = test.contents.data.items;
+        if (responseLoadable.state === 'hasValue') {
+            // const response = responseLoadable.contents;
+            const items = responseLoadable.contents.data.items;
             setRepos(items);
-            // itemsの値を使用する処理を記述する
-          }
+            // setIsClicked(true);
+        }
     }
 
     return (
