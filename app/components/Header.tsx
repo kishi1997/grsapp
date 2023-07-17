@@ -1,6 +1,6 @@
 "use client"
 import classes from "../styles/components/Header.module.scss"
-import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,12 +10,12 @@ export default function Header() {
     if (session) {
         return (
             <header className={classes.container}>
-                <Link className={classes.link} href="/MyGithub">
-                    <Image className={classes.img} alt="profile-icon" src={session.user.image} height="120" width="80" />
+                    <Link href="/MyGithub">
+                        <Image className={classes.img} alt="profile-icon" src={session.user.image} height="120" width="80" />
+                    </Link>
                     <div className={classes.info}>
-                        <button className={classes.btn} onClick={() => signOut()}>ログアウトする</button>
+                            <button className={classes.btn} onClick={() => signOut()}>ログアウトする</button>
                     </div>
-                </Link>
             </header>
         )
     }
