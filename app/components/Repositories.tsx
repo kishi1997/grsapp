@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import classes from '../styles/components/Repositories.module.scss'
-// recoil 
+// recoil
 import { useRecoilValue } from 'recoil';
 import { currentReposSelector } from '../states/selector/currentReposSelector';
 import Pagination from './Pagination';

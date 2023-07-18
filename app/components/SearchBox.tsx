@@ -1,17 +1,16 @@
 'use client'
+import axios from 'axios';
 import classes from '../styles/components/SearchBox.module.scss'
-import Pagination from './Pagination';
-import { useRecoilState, useRecoilValue, useRecoilValueLoadable } from "recoil";
-// recoil：キーワード
-import { addKeywordState } from '../states/atoms/addKeywordState';
-// recoil： apiで取得したレポジトリを格納
-import { searchResultState } from '../states/atoms/searchResultState';
-// recoil： Githubのapiを取得
-import { reposSelector } from '../states/selector/reposSelector';
-import { isClickedState } from '../states/atoms/isClickedState';
 import Repositories from './Repositories';
+// recoil
+import { useRecoilState } from "recoil";
+import { addKeywordState } from '../states/atoms/addKeywordState';
+import { searchResultState } from '../states/atoms/searchResultState';
+import { errorState } from '../states/atoms/errorState';
 
 const SearchBox = () => {
+    // errorの状態管理
+    const [error, setError] = useRecoilState(errorState);
     // 入力キーワードの状態管理
     const [keyword, setKeyword] = useRecoilState(addKeywordState);
 
@@ -20,20 +19,21 @@ const SearchBox = () => {
     // const [repos, setRepos] = useState<Repo[]>([]);
 
     // 検索キーワードと一致するレポジトリをapiを使って検索し、setReposに
-    const responseLoadable = useRecoilValueLoadable(reposSelector);
-
-    // クリックされたかどうかの判定
-    // const [isClicked, setIsClicked] = useRecoilState(isClickedState);
-
-    const searchRepos = () => {
-        // 値があれば表示
-        if (responseLoadable.state === 'hasValue') {
-            // const response = responseLoadable.contents;
-            const items = responseLoadable.contents.data.items;
-            setRepos(items);
-            // setIsClicked(true);
+    const searchRepos = async () => {
+        try {
+            const response = await axios.get(
+                `https://api.github.com/search/repositories?q=${keyword}`
+            );
+            setRepos(response.data.items);
+            // console.log("not-error");
+            if (response.data.items.length === 0) {
+                setError(`"${keyword}"に一致するリポジトリがありません。`);
+                console.log("error");
+            }
+        } catch (error) {
+            throw error;
         }
-    }
+    };
 
     return (
         <>
@@ -45,7 +45,9 @@ const SearchBox = () => {
                 />
             </div>
             <button className={classes.primaryBtn} onClick={searchRepos}>Search</button>
-            {/* <Pagination repos={repos} /> */}
+            <div>
+                {error && <div className={classes.error}>{error}</div>}
+            </div>
             <Repositories />
         </>
     )

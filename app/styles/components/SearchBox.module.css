@@ -33,4 +33,8 @@
   border: none;
   outline: none;
 }
+
+.error {
+  margin-top: 20px;
+}
 /*# sourceMappingURL=SearchBox.module.css.map */
