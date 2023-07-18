@@ -9,10 +9,11 @@ import { useRecoilState } from 'recoil'
 import { headers } from 'next/dist/client/components/headers'
 
 const Page = () => {
+  // セッションデータを取得
   const { data: session } = useSession();
+  // ユーザーレポジトリの状態管理
   const [repos, setRepos] = useRecoilState(accountReposState);
-console.log(session);
-
+  // ユーザーレポジトリの取得
   const fetchRepos = () => {
     if (!session?.user.accessToken) {
       return;
