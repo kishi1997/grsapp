@@ -5,6 +5,11 @@
     text-align: center;
     width: 100%;
     max-width: 800px;
+    @include mq(sm) {
+        margin: 80px auto 0;
+        padding: 0 20px;;
+    }
+
 }
 
 .title {

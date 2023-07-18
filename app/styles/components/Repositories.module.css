@@ -23,6 +23,7 @@
 }
 .repo__icon img {
   width: 100%;
+  height: 100%;
 }
 .repo__btn1 button {
   width: -webkit-fit-content;

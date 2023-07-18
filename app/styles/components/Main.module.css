@@ -4,6 +4,12 @@
   width: 100%;
   max-width: 800px;
 }
+@media screen and (max-width: 576px) {
+  .container {
+    margin: 80px auto 0;
+    padding: 0 20px;
+  }
+}
 
 .title {
   font-size: 40px;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Repositories from './Repositories';
 import ReactPaginate from 'react-paginate';
 import classes from '../styles/components/Pagination.module.scss';
 import { searchResultState } from '../states/atoms/searchResultState';
@@ -26,7 +25,7 @@ const Pagination = () => {
 
     return (
         <>
-            <Repositories repos={repos} currentRepos={currentRepos} />
+            {/* <Repositories repos={repos} currentRepos={currentRepos} /> */}
             {repos.length > 0 &&
                 <div className={classes.container}>
                     <ReactPaginate

@@ -9,6 +9,7 @@ import { searchResultState } from '../states/atoms/searchResultState';
 // recoil： Githubのapiを取得
 import { reposSelector } from '../states/selector/reposSelector';
 import { isClickedState } from '../states/atoms/isClickedState';
+import Repositories from './Repositories';
 
 const SearchBox = () => {
     // 入力キーワードの状態管理
@@ -44,7 +45,8 @@ const SearchBox = () => {
                 />
             </div>
             <button className={classes.primaryBtn} onClick={searchRepos}>Search</button>
-            <Pagination repos={repos} />
+            {/* <Pagination repos={repos} /> */}
+            <Repositories />
         </>
     )
 }
