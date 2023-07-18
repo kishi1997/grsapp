@@ -3,7 +3,7 @@ import { addKeywordState } from "../atoms/addKeywordState";
 import { selector} from "recoil";
 
 // 体重のAtomを作成
-export const getApiState = selector({
+export const reposSelector = selector({
     key: 'getApiState',
     get: async ({ get }) => {
         try {

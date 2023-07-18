@@ -17,4 +17,12 @@ export type Repos = {
     repos: Repo[];
     currentRepos: Repo[];
 }
-// export default Repo;
+
+// ログインしたユーザーのレポジトリ
+export type userRepo = {
+    name: string;
+    id: number;
+    owner: {
+        login: string;
+    };
+};

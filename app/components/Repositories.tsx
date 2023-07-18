@@ -1,20 +1,21 @@
 'use client'
-import React, { useState } from 'react'
-import { Repos } from '../type';
-import { NextPage } from 'next';
+import React, { useState } from 'react';
+import Image from "next/image";
 import classes from '../styles/components/Repositories.module.scss'
+// recoil 
+import { useRecoilValue } from 'recoil';
+import { currentReposSelector } from '../states/selector/currentReposSelector';
 
-const Repositories: NextPage<Repos> = (props) => {
-    const {repos, currentRepos} = props;
+const Repositories = () => {
+    const currentRepos = useRecoilValue(currentReposSelector);
     // idの状態管理
     const [openIds, setOpenIds] = useState(null);
     // idが一致する場合はnullに（詳細表示）、しない場合は付与（詳細非表示）
-    const toggleDetails = (id: number) => {
+    const toggleDetails = (id:number) => {
         if (openIds === id) {
             setOpenIds(null);
         } else {
             setOpenIds(id);
-            console.log(openIds);
         }
     };
 
@@ -33,7 +34,7 @@ const Repositories: NextPage<Repos> = (props) => {
                     {openIds === repo.id &&
                         <div>
                             <div className={classes.repo__detail}>
-                                <div className={classes.repo__icon}><img src={repo.owner.avatar_url} alt="Owner Avatar" /></div>
+                                <div className={classes.repo__icon}><Image height="120" width="80" src={repo.owner.avatar_url} alt="Owner Avatar" /></div>
                                 <div>プロジェクト言語: {repo.language}</div>
                                 <div>Star数: {repo.stargazers_count}</div>
                                 <div>Watcher数: {repo.watchers_count}</div>

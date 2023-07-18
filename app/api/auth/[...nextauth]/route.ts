@@ -8,7 +8,16 @@ export async function getGitHubUserInfo(accessToken: string) {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  return response.data;
+  const starredResponse = await axios.get('https://api.github.com/user/starred', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  const userInfo = response.data;
+  userInfo.stars = starredResponse.data.length;
+
+  return userInfo;
 }
 
 const handler = NextAuth({
@@ -30,9 +39,10 @@ const handler = NextAuth({
       session.user.following = userInfo.following;
       session.user.followers = userInfo.followers;
       session.user.stars = userInfo.stars;
+      console.log(userInfo);
       return session;
     },
-    async jwt({ token, account, profile }) {
+    async jwt({ token, account }) {
       if (account) {
         token.accessToken = account.access_token;
       }

@@ -7,7 +7,7 @@ import { addKeywordState } from '../states/atoms/addKeywordState';
 // recoil： apiで取得したレポジトリを格納
 import { searchResultState } from '../states/atoms/searchResultState';
 // recoil： Githubのapiを取得
-import { getApiState } from '../states/selector/getApiState';
+import { reposSelector } from '../states/selector/reposSelector';
 import { isClickedState } from '../states/atoms/isClickedState';
 
 const SearchBox = () => {
@@ -19,7 +19,7 @@ const SearchBox = () => {
     // const [repos, setRepos] = useState<Repo[]>([]);
 
     // 検索キーワードと一致するレポジトリをapiを使って検索し、setReposに
-    const responseLoadable = useRecoilValueLoadable(getApiState);
+    const responseLoadable = useRecoilValueLoadable(reposSelector);
 
     // クリックされたかどうかの判定
     // const [isClicked, setIsClicked] = useRecoilState(isClickedState);
