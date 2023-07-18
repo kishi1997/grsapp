@@ -1,36 +1,18 @@
-.container {
+.pagination {
   margin-top: 40px;
 }
-.container ul {
-  margin-bottom: 2rem;
+.pagination ul {
+  margin-bottom: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   list-style-type: none;
-  padding: 0 5rem;
+  padding: 0 20px;
 }
-.container ul li.next.diabled {
-  display: none;
-}
-.container ul li.previous a, .container ul li.next a, .container ul li.break a {
-  border-color: transparent;
-}
-.container ul li.selected a {
-  background-color: #00C2FF;
-  border-color: transparent;
-  color: white;
-  min-width: 32px;
-}
-.container ul li.disabled a {
-  color: #fff;
-}
-.container ul li.disable, .container ul li.disabled a {
-  cursor: default;
-}
-.container ul li a {
+.pagination ul li a {
   border-radius: 7px;
-  padding: 0.1rem 1rem;
-  border: #fff 1px solid;
+  padding: 4px 8px;
   cursor: pointer;
+  margin: 0 4px;
 }
 /*# sourceMappingURL=Pagination.module.css.map */

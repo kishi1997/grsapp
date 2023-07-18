@@ -1,44 +1,18 @@
-.container {
+.pagination {
     margin-top: 40px;
     ul {
-        margin-bottom: 2rem;
+        margin-bottom: 80px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         list-style-type: none;
-        padding: 0 5rem;
-
+        padding: 0 20px;
         li {
-            &.next.diabled {
-                display: none;
-            }
-            &.previous a,
-            &.next a,
-            &.break a {
-                border-color: transparent;
-            }
-
-            &.selected a {
-                background-color: #00C2FF;
-                border-color: transparent;
-                color: white;
-                min-width: 32px;
-            }
-
-            &.disabled a {
-                color: #fff;
-            }
-
-            &.disable,
-            &.disabled a {
-                cursor: default;
-            }
-
             a {
                 border-radius: 7px;
-                padding: 0.1rem 1rem;
-                border: #fff 1px solid;
+                padding: 4px 8px;
                 cursor: pointer;
+                margin: 0 4px;
             }
         }
     }

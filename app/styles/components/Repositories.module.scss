@@ -1,3 +1,5 @@
+@import '../variables';
+
 .repo {
     padding: 40px 0;
     border-bottom: 1px solid #fff;
@@ -10,6 +12,9 @@
 
         h2 {
             font-size: 24px;
+        @include mq(sm) {
+            font-size: 18px;
+        }
         }
     }
 
@@ -42,6 +47,9 @@
         border: 2px solid #fff;
         border-radius: 20px;
         background: none;
+        @include mq(sm) {
+            padding: 4px 8px;
+        }
 
         &:hover {
             color: #000;
@@ -54,13 +62,13 @@
     margin-top: 40px;
     padding: 10px 40px;
     background: none;
-    border: 2px solid #00C2FF;
-    color: #00c2ff;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
     border-radius: 20px;
     width: fit-content;
 
     &:hover {
-        background: #00C2FF;
+        background: var(--primary-color);
         border: 2px solid #fff;
         color: #fff;
     }
